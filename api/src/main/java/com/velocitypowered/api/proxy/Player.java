@@ -74,12 +74,16 @@ public interface Player extends
    */
   void setEffectiveLocale(Locale locale);
 
+  UUID getInternalUniqueId();
+
   /**
    * Returns the player's UUID.
    *
    * @return the UUID
    */
   UUID getUniqueId();
+
+  void setProfile(GameProfile profile);
 
   /**
    * Returns the server that the player is currently connected to.

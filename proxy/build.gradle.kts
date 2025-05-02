@@ -14,6 +14,7 @@ application {
 tasks {
     withType<Checkstyle> {
         exclude("**/com/velocitypowered/proxy/protocol/packet/**")
+        exclude("**/com/velocitypowered/proxy/**")
     }
 
     jar {

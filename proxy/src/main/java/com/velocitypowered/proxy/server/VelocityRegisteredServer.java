@@ -139,11 +139,11 @@ public class VelocityRegisteredServer implements RegisteredServer, ForwardingAud
   }
 
   public void addPlayer(ConnectedPlayer player) {
-    players.put(player.getUniqueId(), player);
+    players.put(player.getInternalUniqueId(), player);
   }
 
   public void removePlayer(ConnectedPlayer player) {
-    players.remove(player.getUniqueId(), player);
+    players.remove(player.getInternalUniqueId(), player);
   }
 
   @Override

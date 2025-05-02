@@ -160,6 +160,7 @@ public class ConnectedPlayer implements MinecraftConnectionAssociation, Player, 
   private final @Nullable InetSocketAddress virtualHost;
   private final @Nullable String rawVirtualHost;
   private final HandshakeIntent handshakeIntent;
+  private final UUID internalUniqueId;
   private GameProfile profile;
   private PermissionFunction permissionFunction;
   private int tryIndex = 0;
@@ -200,6 +201,7 @@ public class ConnectedPlayer implements MinecraftConnectionAssociation, Player, 
                   @Nullable InetSocketAddress virtualHost, @Nullable String rawVirtualHost, boolean onlineMode,
                   HandshakeIntent handshakeIntent, @Nullable IdentifiedKey playerKey) {
     this.server = server;
+    this.internalUniqueId = UUID.randomUUID();
     this.profile = profile;
     this.connection = connection;
     this.virtualHost = virtualHost;
@@ -261,6 +263,13 @@ public class ConnectedPlayer implements MinecraftConnectionAssociation, Player, 
   }
 
   @Override
+  public void setProfile(GameProfile profile) {
+    server.updateConnection(this.profile, profile, this);
+
+    this.profile = profile;
+  }
+
+  @Override
   public String getUsername() {
     return profile.getName();
   }
@@ -276,6 +285,11 @@ public class ConnectedPlayer implements MinecraftConnectionAssociation, Player, 
   @Override
   public void setEffectiveLocale(final @Nullable Locale locale) {
     effectiveLocale = locale;
+  }
+
+  @Override
+  public UUID getInternalUniqueId() {
+    return internalUniqueId;
   }
 
   @Override
