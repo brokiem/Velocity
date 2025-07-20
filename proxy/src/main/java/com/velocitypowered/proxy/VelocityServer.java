@@ -717,6 +717,19 @@ public class VelocityServer implements ProxyServer, ForwardingAudience {
     return true;
   }
 
+  public void updateConnection(GameProfile oldGameProfile, GameProfile newGameProfile, ConnectedPlayer connection) {
+    connectionsByName.remove(oldGameProfile.getName().toLowerCase(Locale.US), connection);
+    connectionsByUuid.remove(oldGameProfile.getId(), connection);
+
+    String newName = newGameProfile.getName().toLowerCase(Locale.US);
+    if (connectionsByName.putIfAbsent(newName, connection) != null) {
+      return;
+    }
+    if (connectionsByUuid.putIfAbsent(newGameProfile.getId(), connection) != null) {
+      connectionsByName.remove(newName, connection);
+    }
+  }
+
   /**
    * Unregisters the given player from the proxy.
    *
