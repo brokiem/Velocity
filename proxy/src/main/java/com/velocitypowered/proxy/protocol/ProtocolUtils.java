@@ -69,6 +69,8 @@ public enum ProtocolUtils {
               .value(JSONOptions.EMIT_COMPACT_TEXT_COMPONENT, Boolean.FALSE)
               .value(JSONOptions.EMIT_HOVER_SHOW_ENTITY_ID_AS_INT_ARRAY, Boolean.FALSE)
               .value(JSONOptions.VALIDATE_STRICT_EVENTS, Boolean.FALSE)
+              // before 1.21.5
+              .value(JSONOptions.EMIT_CHANGE_PAGE_CLICK_EVENT_PAGE_AS_STRING, Boolean.TRUE)
               .build()
           )
           .build();
@@ -81,10 +83,13 @@ public enum ProtocolUtils {
               .value(JSONOptions.EMIT_RGB, Boolean.TRUE)
               .value(JSONOptions.EMIT_HOVER_EVENT_TYPE, JSONOptions.HoverEventValueMode.CAMEL_CASE)
               .value(JSONOptions.EMIT_CLICK_EVENT_TYPE, JSONOptions.ClickEventValueMode.CAMEL_CASE)
+              .value(JSONOptions.EMIT_HOVER_SHOW_ENTITY_KEY_AS_TYPE_AND_UUID_AS_ID, true)
               // before 1.20.3
               .value(JSONOptions.EMIT_COMPACT_TEXT_COMPONENT, Boolean.FALSE)
               .value(JSONOptions.EMIT_HOVER_SHOW_ENTITY_ID_AS_INT_ARRAY, Boolean.FALSE)
               .value(JSONOptions.VALIDATE_STRICT_EVENTS, Boolean.FALSE)
+              // before 1.21.5
+              .value(JSONOptions.EMIT_CHANGE_PAGE_CLICK_EVENT_PAGE_AS_STRING, Boolean.TRUE)
               .build()
           )
           .build();
@@ -97,10 +102,13 @@ public enum ProtocolUtils {
               .value(JSONOptions.EMIT_RGB, Boolean.TRUE)
               .value(JSONOptions.EMIT_HOVER_EVENT_TYPE, JSONOptions.HoverEventValueMode.CAMEL_CASE)
               .value(JSONOptions.EMIT_CLICK_EVENT_TYPE, JSONOptions.ClickEventValueMode.CAMEL_CASE)
+              .value(JSONOptions.EMIT_HOVER_SHOW_ENTITY_KEY_AS_TYPE_AND_UUID_AS_ID, true)
               // after 1.20.3
               .value(JSONOptions.EMIT_COMPACT_TEXT_COMPONENT, Boolean.TRUE)
               .value(JSONOptions.EMIT_HOVER_SHOW_ENTITY_ID_AS_INT_ARRAY, Boolean.TRUE)
               .value(JSONOptions.VALIDATE_STRICT_EVENTS, Boolean.TRUE)
+              // before 1.21.5
+              .value(JSONOptions.EMIT_CHANGE_PAGE_CLICK_EVENT_PAGE_AS_STRING, Boolean.TRUE)
               .build()
           )
           .build();
@@ -119,6 +127,7 @@ public enum ProtocolUtils {
               // after 1.21.5
               .value(JSONOptions.EMIT_HOVER_SHOW_ENTITY_KEY_AS_TYPE_AND_UUID_AS_ID, Boolean.FALSE)
               .value(JSONOptions.VALIDATE_STRICT_EVENTS, Boolean.TRUE)
+              .value(JSONOptions.EMIT_CHANGE_PAGE_CLICK_EVENT_PAGE_AS_STRING, Boolean.FALSE)
               .build()
           )
           .build();
