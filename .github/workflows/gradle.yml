@@ -37,4 +37,4 @@ jobs:
           name: velocity-proxy-${{ env.commit_id }}
           files: proxy/build/libs/velocity-proxy-*-all.jar
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
